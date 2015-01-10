@@ -72,9 +72,9 @@ def fight(player, baddie)
 
 end
 
-def flee
+# def flee
 
-end
+# end
 
 fight_question = true
 
