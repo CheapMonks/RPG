@@ -1,4 +1,4 @@
-#RPG
+#RPG organization repo
 
 puts "What is your name?"
 
@@ -46,25 +46,32 @@ def fight(player, baddie)
   succesful_hero_hit = 0
   succesful_villain_hit = 0
 
+
+
   while living
+  	"#{player.name} with #{player.hit_points} vs. #{}
+    player_Roll = rand(1..100)
+    puts player_Roll
+    baddie_Roll = rand(1..100)
+    puts baddie_Roll
+    if	player_Roll <= 80
+      baddie.hit_points -= rand(2..4)
+      puts baddie.hit_points
 
-    if	rand(1..100) <= 80
-      succesful_hero_hit+1
 
+
+    elsif baddie_Roll <= 60
+      player.hit_points -= rand(2..4)
+      puts player.hit_points
     end
 
-    if rand(1..100) <= 60
-      succesful_villain_hit+1
-    end
 
-    puts player.hit_points
-
-    if hero.hit_points >= 0
+    if player.hit_points <= 0
       puts  "#{player.name} has fallen in battle!"
       living = false
-    end
 
-    if villain.hit_points >= 0
+
+    elsif baddie.hit_points <= 0
       puts "#{player.name} has defeated evil today!"
       living = false
     end
@@ -89,4 +96,3 @@ while fight_question == true
     fight_question = false
   end
 end
-
